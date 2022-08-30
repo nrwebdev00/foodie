@@ -1,0 +1,38 @@
+html{
+    font-size: 62.5%;
+}
+html:focus-within{
+    scroll-behavior: smooth;
+}
+
+html, body{
+    min-height: 100%;
+}
+
+body{
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    background-color: var(--clr-white);
+}
+
+a:not([class]){
+    text-decoration-skip-ink: auto;
+}
+
+img, picture, svg {
+    max-width: 100%;
+    display: block;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+    &:visited{
+        text-decoration: none;
+        color: inherit;
+    }
+}
+input:focus, input:active, input::before, input::after{
+    outline: none;
+    border: 0;
+    background-color: transparent;
+}

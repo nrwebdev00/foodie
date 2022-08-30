@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
+
+:root{
+
+    // Colors
+    --clr-white: #fdfaf6;
+    --clr-tan: hsl(33, 67%, 90%);
+    --clr-dark-green: hsl(62, 85%, 35%);
+    --clr-green: hsl(62, 71%, 50%);
+    --clr-light-green: hsl(62, 41%, 85%);
+    --clr-orange: hsl(30, 100%, 51%);
+    --clr-light-orange: hsl(30, 60%, 75%);
+    --clr-black: #1b1a17;
+
+    --clr-primary: var(--clr-orange);
+    --clr-secondary: var(--clr-green);
+    --clr-dark: var(--clr-black);
+    --clr-light: var(--clr-tan);
+
+    // Font
+    --ff-default: 'Roboto', sans-serif;
+    --ff-secondary: 'Sigmar One', cursive;
+
+    --fw-100: 100;
+    --fw-300: 300;
+    --fw-400: 400;
+    --fw-500: 500;
+    --fw-700: 700;
+
+    --fs-100: .75em;
+    --fs-200: .85em;
+    --fs-300: 1em;
+    --fs-400: 1.5em;
+    --fs-500: 2em;
+    --fs-600: 2.5em;
+    --fs-700: 3.0em;
+    --fs-800: 4.0em;
+    --fs-900: 5.0em;
+
+    --fs-fine: .65em;
+    --fs-small: var(--fs-200);
+    --fs-default: var(--fs-300);
+    --fs-large: var(--fs-600);
+    --fs-xl: var(--fs-900);
+    --fs-jumbo: 10em;
+
+    --letter-spacing-default: 1.75px;
+    --letter-spacing-heading: 2.5px;
+    --letter-spacing-subheading: 2.0px;
+
+    --line-break: 3px solid rgba(0,0,0, .5);
+
+    --space-100: .5em;
+    --space-200: .75em;
+    --space-300: 1em;
+    --space-400: 1.5em;
+    --space-500: 2.0em;
+    --space-600: 2.5em;
+    --space-700: 3em;
+    --space-800: 5em;
+    --space-900: 7.5em;
+    --space-1000: 10em;
+
+    --gap-100: var(--space-100);
+    --gap-300: var(--space-300);
+    --gap-500: var(--space-500);
+
+    --header-height: 12.5em;
+
+    --hover-border-bottom: 2px solid var(--clr-black);
+    --hover-transition: .3s ease-in;
+}

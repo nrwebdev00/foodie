@@ -1,0 +1,30 @@
+.tag-square{
+    border: 3px solid var(--clr-dark-green);
+    width: 100%;
+    padding: .5em .75em;
+    background-color: var(--clr-light-green);
+    color: var(--clr-dark-green);
+    font-size: var(--fs-500);
+    font-weight: var(--fw-300);
+    letter-spacing: var(--letter-spacing-default);
+}
+
+.tags-container{
+    padding: 3em 0 3em 3em;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.tag-green{
+    border: 2px solid var(--clr-dark-green);
+    border-radius: 5em;
+    padding: 1em 1.5em;
+    background-color: var(--clr-light-green);
+    font-family: var(--ff-default);
+    font-size: var(--fs-400);
+    font-weight: var(--fw-300);
+    letter-spacing: var(--letter-spacing-default);
+    color: var(--clr-dark-green);
+}

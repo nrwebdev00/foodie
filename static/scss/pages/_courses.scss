@@ -1,0 +1,23 @@
+.pages-nav{
+    margin: 0 auto;
+    max-width: 131em;
+    width: 100%;
+}
+
+.course-tag-list{
+    margin: 7.5em 0 0 4em;
+
+}
+.courses-wrapper{
+    h1{
+        padding-block: 2em;
+        font-family: var(--ff-default);
+        font-size: var(--fs-900);
+        color: var(--clr-primary);
+        font-weight: var(--fw-500);
+        letter-spacing: var(--letter-spacing-heading);
+        text-shadow: 2px 2px 4px rgba(0,0,0, .75);
+        text-align: center;
+    }
+
+}
