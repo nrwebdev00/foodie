@@ -58,7 +58,7 @@ class Article_Comment(models.Model):
                         primary_key=True, editable=False)
 
   def __str__(self):
-    return self.article
+    return self.comment
 
 
 class Article_Like(models.Model):
@@ -67,7 +67,3 @@ class Article_Like(models.Model):
   created_at = models.DateTimeField(auto_now_add=True)
   id = models.UUIDField(default=uuid.uuid4, unique=True,
                         primary_key=True, editable=False)
-
-  def __str__(self):
-    return self.article
-
