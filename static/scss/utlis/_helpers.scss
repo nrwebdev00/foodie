@@ -60,6 +60,15 @@
     font-weight: var(--fw-300);
     letter-spacing: var(--letter-spacing-subheading);
 }
+.heading-title{
+    padding-top: .75em;
+    font-family: var(--ff-secondary);
+    font-weight: var(--fw-700);
+    font-size: var(--fs-xl);
+    color: var(--clr-primary);
+    letter-spacing: var(--letter-spacing-heading);
+    text-shadow: 2px 2px 4px rgba(0,0,0, .5);
+}
 .nav-text{
     font-family: var(--ff-default);
     color: inherit;

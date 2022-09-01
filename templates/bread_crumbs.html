@@ -1,0 +1,16 @@
+<main class="pages-nav">
+  <nav class="bread-crumbs">
+    <div class="wrapper">
+      <div class="crumbs">
+        {% for crumb in crumbs %}
+          <a href="">{{crumb}} </a>
+          <span> > </span>
+        {% endfor %}
+        </div>
+        <div class="current-page">
+          <h2>{{crumbs|last}}</h2>
+        </div>
+      </div>
+    </div>
+  </nav>
+</main>

@@ -6,6 +6,7 @@
     .row{
         display: flex;
         justify-content: space-evenly;
+        flex-wrap: wrap-reverse;
         gap: 1em;
         border-bottom: var(--line-break);
         padding-bottom: 3em;
@@ -54,6 +55,7 @@
         }
         .recipe-list-btn{
             width: 28%;
+            min-width: 10em;
             border: 2px solid var(--clr-dark-green);
             padding: 1em .5em 1em 1.5em;
             background-color: var(--clr-light-green);

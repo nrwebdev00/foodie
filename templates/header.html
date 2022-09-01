@@ -1,0 +1,29 @@
+<header class="header-main">
+  <div class="header-container">
+    <div class="header-top">
+      <a href="{% url 'home' %}" class="header-logo">Reed's Foodie</a>
+      <div class="header-search">
+        <input type="text" placeholder="Search...">
+        <div class="search-field | padding-top-2 padding-right-4">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </div>
+      <div class="header-user">
+        <ul role="list">
+          <li><a href="#" class="nav-text">Profile</a></li>
+          <li><a href="#" class="nav-text">LogIn/SignUp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="header-bottom | padding-bottom-2">
+      <ul role="list">
+        <li><a href="{% url 'courses' %}" class="nav-text">Course</a></li>
+        <li><a href="#" class="nav-text">Cuisine</a></li>
+        <li><a href="#" class="nav-text">Baking</a></li>
+        <li><a href="#" class="nav-text">Ingredients</a></li>
+        <li><a href="#" class="nav-text">Holidays</a></li>
+        <li><a href="#" class="nav-text">Articles</a></li>
+      </ul>
+    </div>
+  </div>
+</header>

@@ -1,1 +1,45 @@
-home page
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<main class="home-page">
+  <section class="hero">
+    <div class="hero-left">
+      <div class="wrapper">
+      {% for recipe in featured_recipe %}
+        <img src="{{recipe.imageURL}}" alt="{{recipe.alt}}">
+        <div class="hero-title">
+          <h1>{{recipe.title}}</h1>
+          <p class="body-title | padding-top-4">{{recipe.body}}</p>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="quick-ideas">
+        <div class="heading-2 padding-bottom-4">Quick Ideas</div>
+        {% for idea in quick_idea %}
+          <a href="{% url 'quick_idea' idea.url_name %}" class="idea">
+            <img src="{{idea.imageURL}}" alt="{{idea.alt}}">
+            <h2 class="heading-3">{{idea.title}}</h2>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</main>
+<main class="padding-top-11 margin-bottom-10">
+  <section class="section-main">
+    {% for section in index_main_section %}
+      <h1 class="heading-title">{{section.title}}</h1>
+    {% endfor %}
+    <div class="wrapper | padding-top-10">
+      {% for item in index_main_section_items %}
+        <a href="{{item.url_name}}" class="section-main-item">
+          <img src="{{item.imageURL}}" alt="{{item.alt}}">
+          <h2 class="heading-2">{{item.title}}</h2>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+</main>
+{% endblock content %}

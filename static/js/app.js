@@ -4,6 +4,8 @@ const carsouleLeftArrow = document.getElementById('carsoule-arrow-left');
 const carsouleRightArrow = document.getElementById('carsoule-arrow-right');
 
 let activeSlide = 0;
+carsouleImages[0].classList.remove('image-display-none');
+carsouleCaption[0].classList.remove('image-display-none');
 
 carsouleLeftArrow.addEventListener('click', ()=>{
     if(activeSlide > 0){

@@ -1,0 +1,122 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+  <main class="article">
+    <section class="article-left">
+      <div class="article-title">
+        <h2>{{article.title}}</h2>
+        <h3>Author: {{owner.name}}</h3>
+      </div>
+      <div class="article-image">
+        <div class="image-carsoule">
+          <div class="carsoule-arrows">
+            <i class="fa-solid fa-angle-left" id="carsoule-arrow-left"></i>
+            <i class="fa-solid fa-angle-right" id="carsoule-arrow-right"></i>
+        </div>
+          <img src="{{article.imageURL}}" alt="" class="carsoule-image image-display-none">
+          {% for image in article_images %}
+            <img src="{{image.imageURL}}" alt="" class="carsoule-image image-display-none">
+            <h6 class="carsoule-caption image-display-none">{{image.caption}}</h6>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="article-text">
+        <p><span>{{article.body|slice:':1'}}</span>{{article.body|slice:'1:'}}</p>
+      </div>
+    </section>
+    <section class="article-right">
+      {% if courses_tags %}
+          <div class="course-tags tag-wrapper">
+            <h2>Courses</h2>
+            <div class="tags-container">
+              {% for tag in courses_tags %}
+                <div class="tag-green">{{tag.name}}</div>
+              {% endfor %}
+            </div>
+          </div>
+      {% endif %}
+      {% if cuisine_tag %}
+          <div class="cuisine-tags tags-wrapper">
+            <h2>Cuisines</h2>
+            <div class="tags-container">
+              {% for tag in cuisine_tags %}
+                <div class="tag-green">{{tag.name}}</div>
+              {% endfor %}
+            </div>
+          </div>
+      {% endif %}
+      {% if ingredient_tags %}
+        <div class="ingredient-tags tags-wrapper">
+          <h2>Ingredients</h2>
+          <div class="tags-container">
+            {% for tag in ingredient_tags %}
+              <div class="tag-green">{{tag.name}}</div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+      {% if holiday_tags %}
+          <div class="holidays-tags tags-wrapper">
+            <h2>Holidays</h2>
+            <div class="tags-container">
+              {% for tag in holiday_tags %}
+                <div class="tag-green">{{tag.name}}</div>
+              {% endfor %}
+            </div>
+          </div>
+      {% endif %}
+      <div class="recipe-list-wrapper">
+        {% if courses_recipe %}
+        {% for recipe in courses_recipe %}
+          <div class="recipe-list">
+            <img src="{{recipe.imageURL}}" alt="">
+            <div class="recipe-list-info">
+              <h2>{{recipe.title}}</h2>
+              <h6>{{recipe.title_long}}</h6>
+              <a href="#" class="recipe-list-btn">Full Recipe <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        {% endfor %}
+        {% endif %}
+        {% if cuisine_recipe %}
+        {% for recipe in cuisine_recipe %}
+        <div class="recipe-list">
+          <img src="{{recipe.imageURL}}" alt="">
+          <div class="recipe-list-info">
+            <h2>{{recipe.title}}</h2>
+            <h6>{{recipe.title_long}}</h6>
+            <a href="#" class="recipe-list-btn">Full Recipe <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% if ingredient_recipe %}
+        {% for recipe in ingredient_recipe %}
+        <div class="recipe-list">
+          <img src="{{recipe.imageURL}}" alt="">
+          <div class="recipe-list-info">
+            <h2>{{recipe.title}}</h2>
+            <h6>{{recipe.title_long}}</h6>
+            <a href="#" class="recipe-list-btn">Full Recipe <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% if holiday_recipe %}
+        {% for recipe in holiday_recipe %}
+        <div class="recipe-list">
+          <img src="{{recipe.imageURL}}" alt="">
+          <div class="recipe-list-info">
+            <h2>{{recipe.title}}</h2>
+            <h6>{{recipe.title_long}}</h6>
+            <a href="#" class="recipe-list-btn">Full Recipe <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+      </section>
+  </main>
+
+
+{% endblock content %}

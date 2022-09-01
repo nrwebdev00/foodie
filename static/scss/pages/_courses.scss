@@ -5,10 +5,15 @@
 }
 
 .course-tag-list{
-    margin: 7.5em 0 0 4em;
+    margin: 7.5em auto 0 auto;
+    max-width: 131em;
+    width: 100%;
 
 }
 .courses-wrapper{
+    margin: 0 auto;
+    max-width: 131em;
+    width: 100%;
     h1{
         padding-block: 2em;
         font-family: var(--ff-default);

@@ -91,6 +91,7 @@
                 border-bottom: var(--line-break);
                 padding-bottom: .15em;
                 text-shadow: 2px 2px 2px rgba(0,0,0, .5);
+                text-transform: capitalize;
             }
             h3{
                 color: var(--clr-black);
@@ -98,6 +99,7 @@
                 font-size: var(--fs-500);
                 letter-spacing: var(--letter-spacing-default);
                 padding-left: .25em;
+                text-transform: capitalize;
             }
         }
         .article-image{

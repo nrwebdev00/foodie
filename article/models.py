@@ -12,6 +12,7 @@ class Article(models.Model):
   owner = models.ForeignKey(Profile, on_delete=models.CASCADE)
   title = models.CharField(max_length=1000)
   body = models.TextField()
+  featured_image = models.ImageField(upload_to='article/', default='article/dinner-01.jpg')
   courses_tags = models.ManyToManyField(Courses_Tag, blank=True)
   cuisine_tags = models.ManyToManyField(Cuisine_Tag, blank=True)
   ingredients_tag = models.ManyToManyField(Ingredients_Tag, blank=True)
@@ -23,6 +24,13 @@ class Article(models.Model):
   def __str__(self):
     return self.title
 
+  @property
+  def imageURL(self):
+    try:
+      url = self.featured_image.url
+    except:
+      url = ''
+    return url
 
 class Article_Image(models.Model):
   owner = models.ForeignKey(Profile, on_delete=models.CASCADE)
@@ -35,6 +43,14 @@ class Article_Image(models.Model):
 
   def __str__(self):
      return self.caption
+
+  @property
+  def imageURL(self):
+    try:
+      url = self.image.url
+    except:
+      url = ''
+    return url
 
 
 class Article_Video(models.Model):

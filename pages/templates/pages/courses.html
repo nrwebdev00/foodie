@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+  {% include 'bread_crumbs.html' %}
+  <section class="tag-input-list course-tag-list">
+    <ul role='list' class="padding-left-8">
+      {% for course in courses %}
+      <li><a href="{% url 'course' course %}" class="tag-square">{{course}}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  <section class="courses-wrapper">
+    <h1>Most Recent Courses Articles</h1>
+    <div class="article-list-wrapper">
+      {% for article in articles %}
+      <div class="article-list">
+        <img src="{{article.imageURL}}" alt="{{article.alt}}">
+        <div class="article-list-info">
+          <h2>{{article.title}}</h2>
+          <h6>{{article.body|slice:":400"}}</h6>
+          <a href="{% url 'article-single' article.id %}" class="article-list-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+
+{% endblock content %}
