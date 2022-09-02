@@ -1,3 +1,4 @@
+from platform import mac_ver
 import uuid
 from django.db import models
 from recipe.models import (Courses_Tag,
@@ -37,6 +38,7 @@ class Article_Image(models.Model):
   article = models.ForeignKey(Article, on_delete=models.CASCADE)
   image = models.ImageField(upload_to="article/")
   caption = models.TextField(blank=True, null=True)
+  alt = models.CharField(max_length=100, blank=True, null=True)
   created_at = models.DateTimeField(auto_now_add=True)
   id = models.UUIDField(default=uuid.uuid4, unique=True,
                         primary_key=True, editable=False)
@@ -57,6 +59,7 @@ class Article_Video(models.Model):
   owner = models.ForeignKey(Profile, on_delete=models.CASCADE)
   article = models.ForeignKey(Article, on_delete=models.CASCADE)
   caption = models.TextField(blank=True, null=True)
+  alt = models.CharField(max_length=100, null=True, blank=True)
   video = models.FileField(upload_to='videos/')
   created_at = models.DateTimeField(auto_now_add=True)
   id = models.UUIDField(default=uuid.uuid4, unique=True,

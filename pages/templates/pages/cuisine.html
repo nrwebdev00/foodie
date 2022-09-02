@@ -1,11 +1,12 @@
 {% extends 'main.html' %}
 {% load static %}
 {% block content %}
+
   {% include 'bread_crumbs.html' %}
   <section class="tag-input-list course-tag-list">
-    <ul role='list' class="padding-left-8">
-      {% for course in courses %}
-      <li><a href="{% url 'course' course %}" class="tag-square">{{course}}</a></li>
+    <ul class="padding-left-8" role='list'>
+      {% for tag in cuisines %}
+        <li><a href="{% url 'cuisine' tag %}" class="tag-square">{{tag}}</a></li>
       {% endfor %}
     </ul>
   </section>
@@ -26,4 +27,5 @@
       </div>
     </div>
   </section>
+
 {% endblock content %}

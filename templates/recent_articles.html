@@ -1,0 +1,15 @@
+<section class="courses-wrapper">
+  <h1>Most Recent {{title}} Articles</h1>
+  <div class="article-list-wrapper">
+    {% for article in articles %}
+      <div class="article-list">
+        <img src="{{article.imageURL}}" alt="{{article.alt}}">
+        <div class="article-list-info">
+          <h2>{{article.title}}</h2>
+          <h6>{{article.body|slice:"400"}}</h6>
+          <a href="{% url 'article-single' article.id %}" class="article list-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>

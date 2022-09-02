@@ -1,9 +1,11 @@
-from django.shortcuts import render
+import re
+from django.shortcuts import render,redirect
 from .models import (Article,
                      Article_Comment,
                      Article_Image,
                      Article_Like
                     )
+from .forms import ArticleForm, ArticleImageForm
 from user.models import Profile
 from recipe.models import (Recipe)
 
@@ -61,3 +63,38 @@ def single_article(request, id):
             }
 
   return render(request, 'article/article-single.html', context)
+
+
+def create_article(request):
+  form = ArticleForm()
+  form_image = ArticleImageForm()
+
+  if request.method == 'POST':
+    form = ArticleForm(request.POST)
+    form_image = ArticleImageForm(request.POST)
+    if form.is_valid() and form_image.is_valid():
+      form.save()
+      form_image.save()
+      return redirect('home')
+
+  context = {'form': form, 'form_image': form_image}
+
+  return render(request, 'article/article_form.html', context)
+
+
+def update_article(request, id):
+  article = Article.objects.get(id=id)
+  form = ArticleForm(instance=article)
+
+  if request.method == 'POST':
+    form = ArticleForm(request.POST, instance=article)
+    if form.is_valid():
+      form.save()
+      return redirect('home')
+
+  context = {'form': form}
+
+  return render(request, 'article/article_form.html', context)
+
+
+# Delete Article View

@@ -14,6 +14,7 @@ class Profile(models.Model):
   bio = models.TextField(blank=True, null=True)
   profile_image = models.ImageField( null=True, blank=True,
           upload_to='profiles/', default="profiles/user-default.png")
+  alt_image = models.CharField(max_length=100, blank=True, null=True)
   facebook_url = models.CharField(max_length=500, null=True, blank=True)
   twitter_url = models.CharField(max_length=500, null=True, blank=True)
   instagram_url = models.CharField(max_length=500, null=True, blank=True)

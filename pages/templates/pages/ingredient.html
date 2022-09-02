@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+  {% include 'bread_crumbs.html' %}
+  <section class="tag-input-list course-tag-list">
+    <ul role='list' class="padding-left-8" >
+      {% for ingredient in ingredients %}
+        <li><a href="{% url 'ingredient' ingredient %}" class="tag-square">{{ingredient}}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  <section class="courses-wrapper">
+    <h1>{{ingredient}} Recipes</h1>
+    <div class="recipe-list-wrapper">
+      <div class="row">
+        {% for recipe in recipes %}
+          <div class="recipe-list">
+            <img src="{{recipe.imageURL}}" alt="{{recipe.title}}">
+            <div class="recipe-list-info">
+              <h2>{{recipe.title}}</h2>
+              <h6>{{recipe.title_long}}</h6>
+              <a href="#" class="recipe-">Full Recipe <i class="fa-solid fa-arrow-right"></i></a>list-btn
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}

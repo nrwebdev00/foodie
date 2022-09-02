@@ -4,13 +4,13 @@
   {% include 'bread_crumbs.html' %}
   <section class="tag-input-list course-tag-list">
     <ul role='list' class="padding-left-8">
-      {% for course in courses %}
-      <li><a href="{% url 'course' course %}" class="tag-square">{{course}}</a></li>
+      {% for holiday in holidays %}
+      <li><a href="{% url 'holiday_recipe' holiday %}" class="tag-square">{{holiday}}</a></li>
       {% endfor %}
     </ul>
   </section>
   <section class="courses-wrapper">
-    <h1>{{course}} Recipes</h1>
+    <h1>{{holiday}} Recipes</h1>
     <div class="recipe-list-wrapper">
       <div class="row">
         {% for recipe in recipes %}

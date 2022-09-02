@@ -10,6 +10,7 @@ class Recipe(models.Model):
     title_long = models.TextField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     featured_image = models.ImageField(upload_to='recipe/', default='recipe/dinner-02.jpg')
+    alt_image = models.CharField(max_length=100, blank=True, null=True)
     courses_tag = models.ManyToManyField('Courses_Tag', blank=True)
     cuisine_tag = models.ManyToManyField('Cuisine_Tag', blank=True)
     ingredients_tag = models.ManyToManyField('Ingredients_Tag', blank=True)
@@ -94,6 +95,7 @@ class Recipe_Video(models.Model):
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE)
     caption = models.TextField(null=True, blank=True)
     video = models.FileField(upload_to='videos/')
+    alt = models.CharField(max_length=100, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,
                           primary_key=True, editable=False)
@@ -114,6 +116,7 @@ class Recipe_Images(models.Model):
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE)
     caption = models.TextField(null=True, blank=True)
     image = models.ImageField(upload_to='recipe/')
+    alt = models.CharField(max_length=100, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,
                           primary_key=True, editable=False)
