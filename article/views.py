@@ -5,7 +5,7 @@ from .models import (Article,
                      Article_Image,
                      Article_Like
                     )
-from .forms import ArticleForm, ArticleImageForm
+from .forms import ArticleCommentForm, ArticleForm, ArticleImageForm
 from user.models import Profile
 from recipe.models import (Recipe)
 
@@ -67,27 +67,22 @@ def single_article(request, id):
 
 def create_article(request):
   form = ArticleForm()
-  form_image = ArticleImageForm()
 
   if request.method == 'POST':
-    form = ArticleForm(request.POST)
-    form_image = ArticleImageForm(request.POST)
-    if form.is_valid() and form_image.is_valid():
+    form = ArticleForm(request.POST, request.FILES)
+    if form.is_valid():
       form.save()
-      form_image.save()
       return redirect('home')
 
-  context = {'form': form, 'form_image': form_image}
+  context = {'form': form,}
 
   return render(request, 'article/article_form.html', context)
 
-
-def update_article(request, id):
-  article = Article.objects.get(id=id)
-  form = ArticleForm(instance=article)
+def create_article_image(request):
+  form = ArticleImageForm()
 
   if request.method == 'POST':
-    form = ArticleForm(request.POST, instance=article)
+    form = ArticleImageForm(request.POST, request.FILES)
     if form.is_valid():
       form.save()
       return redirect('home')
@@ -96,5 +91,94 @@ def update_article(request, id):
 
   return render(request, 'article/article_form.html', context)
 
+def create_article_comment(request):
+  comment = ArticleCommentForm()
 
-# Delete Article View
+  if request.method == 'POST':
+    comment = ArticleCommentForm(request.POST)
+    if comment.is_valid():
+      comment.save()
+      return redirect('home')
+
+  context = {'form':comment}
+
+  return render(request, 'article/article_form.html', context)
+
+
+
+
+def update_article(request, id):
+  article = Article.objects.get(id=id)
+  form = ArticleForm(instance=article)
+
+  if request.method == 'POST':
+    form = ArticleForm(request.POST, request.FILES, instance=article)
+    if form.is_valid():
+      form.save()
+      return redirect('home')
+
+  context = {'form': form}
+
+  return render(request, 'article/article_form.html', context)
+
+def update_article_image(request, id):
+  image = Article_Image.objects.get(id=id)
+  form = ArticleImageForm(instance=image)
+
+  if request.method == 'POST':
+    form = ArticleImageForm(request.POST, request.FILES, instance=image)
+    if form.is_valid():
+      form.save()
+      return redirect('home')
+
+  context = {'form': form}
+
+  return render(request, 'article/article_form.html', context)
+
+def update_article_comment(request, id):
+  comment = Article_Comment.objects.get(id=id)
+  form = ArticleCommentForm(instance=comment)
+
+  if request.method == 'POST':
+    form = ArticleCommentForm(request.POST, instance=comment)
+    if form.is_valid():
+      form.save()
+      return redirect('home')
+
+  context = { 'form': form}
+
+  return render(request, 'article/article_form.html', context)
+
+
+def delete_article(request, id):
+  article = Article.objects.get(id=id)
+
+  if request.method == 'POST':
+    article.delete()
+    return redirect('home')
+
+  context = {'object': article}
+
+  return render(request, 'article/article-delete.html', context)
+
+def delete_article_image(request, id):
+  image = Article_Image.objects.get(id=id)
+
+  if request.method == 'POST':
+    image.delete()
+    return redirect('home')
+
+  context = { 'object', image}
+
+  return render(request, 'article/article-delete.html', context)
+
+def delete_article_comment(request, id):
+  comment = Article_Comment.objects.get(id=id)
+
+  if request.method == 'POST':
+    comment.delete()
+    return redirect('home')
+
+  context = { 'object': comment}
+
+  return render(request, 'article/article-delete.html', context)

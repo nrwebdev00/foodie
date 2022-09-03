@@ -7,6 +7,7 @@
         <div class="article-list-info">
           <h2>{{article.title}}</h2>
           <h6>{{article.body|slice:"400"}}</h6>
+          {{article.id}}
           <a href="{% url 'article-single' article.id %}" class="article list-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
